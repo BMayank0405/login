@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Elastic Login Form</title>
+  <link rel="stylesheet"  href="css/base.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous">
+  </script>
+
+</head>
+<body>
+  <div id="bg-img">
+    <header>
+    <h1>EvenCargo</h1>
+    </header>
+    <div class="container ">
+      <div class="profile">
+        <button class="profile__avatar fixtop" id="toggleProfile">
+          <img src="./images/even.png" alt="Avatar" />
+        </button>
+
+        <form method="POST" action="captcha_test.php" autocomplete="off" id="form">
+          <div class="profile__form">
+            <div class="profile__fields">
+              <div class="field username">
+                <input type="text" id="fieldUser" class="input" required pattern=.*\S.* name="username"/>
+                <label for="fieldUser" class="label"><img src="./images/usrname.png" style="width:25px;height:25px"/>Username</label>
+                <div class="errors"></div>
+              </div>
+
+              <div class="field pass">
+                <input type="password" id="fieldPassword" class="input" required pattern=.*\S.* minlength="6" name="password"/>
+                <label for="fieldPassword" class="label"><img src="./images/pass.png" style="width:25px;height:25px"/>Password</label>
+                <div></div>
+              </div>
+
+              <img src="captcha.php" width="120" height="32" id="captcha">
+
+              <div class="field pass reload ">
+                <input type="button"  onclick="getcaptcha();" class="btn" value="Reload Captcha"/>
+              </div>
+              <div class="field  captcha">
+                <input type="text" id="fieldCaptcha" class="input" required pattern=.*\S.* maxlength="6" name="captcha"/>
+                <label for="fieldCaptcha" class="label">Captcha</label>
+                <div class="errors"></div>
+              </div>
+
+              <div class="profile__footer">
+                <input type="submit" name="submit_form" value="Login" class="btn" />
+              </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!--Google Font -->
+<link href="https://fonts.googleapis.com/css?family=Droid+Serif:700|Sorts+Mill+Goudy:400i" rel="stylesheet" />
+
+<script>
+  document.getElementById('toggleProfile').addEventListener('click', function () {
+    [].map.call(document.querySelectorAll('.profile'), function(el) {
+      el.classList.toggle('profile--open');
+    });
+  });
+  function getcaptcha()
+  {
+    $.ajax({
+      type: 'post',
+      url: 'captcha.php',
+      cache:false,
+      success: function (response) {
+        $('#captcha').attr('src','captcha.php')
+      }
+    });
+  }
+
+  $(document).ready(function(){
+    $('#toggleProfile').on('click', function(){
+      $('#bg-img').toggleClass('blurfilter');
+      $('#toggleProfile').toggleClass('fixtop');
+    });
+  });
+</script>
+</body>
+</html>
