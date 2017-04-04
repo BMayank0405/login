@@ -22,6 +22,7 @@ body{
 }
 
 
+
 @media screen and (min-width:770px) {
   #bg-img{
     background: -webkit-linear-gradient(rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%),
@@ -178,7 +179,7 @@ button {
   .container {
     top:100% !important;
     height: 100%;
-    width: 80%;
+    width: 90%;
     margin-top: 0;
   }
 }
@@ -285,6 +286,7 @@ button {
 }
 
 .label {
+  width:100%;
   position: absolute;
   height: 2rem;
   line-height: 2rem;
@@ -309,7 +311,7 @@ button {
 .input:focus {
   outline: 0;
   opacity: 1;
-  border-color: red ;
+  border-color: blue;
 }
 
 .input:focus + .label,
@@ -349,6 +351,10 @@ input:valid + .label {
 
 .captcha{
   margin-bottom:0.25em !important;
+}
+
+.errors{
+  float: right;
 }
 
 @keyframes intro {

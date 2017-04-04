@@ -1,10 +1,5 @@
 <?php
 
-  $username = $_POST['username'];
-  $password = $_POST['password'];
-
-
-
 //for making sure that we allow access to only signed in users on the page on which this function is called
  function protect_page() {
    if( !logged_in()){
@@ -12,7 +7,6 @@
      exit();
    }
  }
-
   function login(string $username , $password){
     global $errors,$db;
     if(!user_id ($username)){
@@ -31,20 +25,8 @@
  }
 
  //if user is logged in different page will be shown to the user
-   function logged_in() {
-      return (isset($_SESSION['user_id']))?true:false;
-   }
 
-  function array_sanitze(&$item){
-     global $db;
-     $item = mysqli_real_escape_string($db, $item);
-   }
 
-  function sanitize(string $data ){
-       global $db;
-       $data = htmlentities(strip_tags(trim($data)),ENT_QUOTES);
-       return $db->real_escape_string($data);
-    }
 
   function user_exists(string $username):bool
      {

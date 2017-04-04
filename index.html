@@ -21,18 +21,18 @@
           <img src="./images/even.png" alt="Avatar" />
         </button>
 
-        <form method="POST" action="captcha_test.php" autocomplete="off" id="form">
+        <form method="POST" action="lan.php" autocomplete="off" id="form">
           <div class="profile__form">
             <div class="profile__fields">
               <div class="field username">
                 <input type="text" id="fieldUser" class="input" required pattern=.*\S.* name="username"/>
-                <label for="fieldUser" class="label"><img src="./images/usrname.png" style="width:25px;height:25px"/>Username</label>
-                <div class="errors"></div>
+                <label for="fieldUser" class="label"><img src="./images/usrname.png" style="width:25px;height:25px"/>Username </label>
+
               </div>
 
               <div class="field pass">
                 <input type="password" id="fieldPassword" class="input" required pattern=.*\S.* minlength="6" name="password"/>
-                <label for="fieldPassword" class="label"><img src="./images/pass.png" style="width:25px;height:25px"/>Password</label>
+                <label for="fieldPassword" class="label"><img src="./images/pass.png" style="width:25px;height:25px"/>Password </label>
                 <div></div>
               </div>
 
@@ -43,12 +43,12 @@
               </div>
               <div class="field  captcha">
                 <input type="text" id="fieldCaptcha" class="input" required pattern=.*\S.* maxlength="6" name="captcha"/>
-                <label for="fieldCaptcha" class="label">Captcha</label>
+                <label for="fieldCaptcha" class="label">Captcha </label>
                 <div class="errors"></div>
               </div>
 
               <div class="profile__footer">
-                <input type="submit" name="submit_form" value="Login" class="btn" />
+                <input type="submit" name="submit_form" value="Login" class="btn fade" hidden/>
               </div>
           </div>
         </form>
@@ -62,30 +62,6 @@
 <!--Google Font -->
 <link href="https://fonts.googleapis.com/css?family=Droid+Serif:700|Sorts+Mill+Goudy:400i" rel="stylesheet" />
 
-<script>
-  document.getElementById('toggleProfile').addEventListener('click', function () {
-    [].map.call(document.querySelectorAll('.profile'), function(el) {
-      el.classList.toggle('profile--open');
-    });
-  });
-  function getcaptcha()
-  {
-    $.ajax({
-      type: 'post',
-      url: 'captcha.php',
-      cache:false,
-      success: function (response) {
-        $('#captcha').attr('src','captcha.php')
-      }
-    });
-  }
-
-  $(document).ready(function(){
-    $('#toggleProfile').on('click', function(){
-      $('#bg-img').toggleClass('blurfilter');
-      $('#toggleProfile').toggleClass('fixtop');
-    });
-  });
-</script>
+<script src="index.js"></script>
 </body>
 </html>
