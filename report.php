@@ -63,12 +63,12 @@ include 'header.php';
              if(isset($_REQUEST['delivery_report']))
              {
 
-              echo '<table class="table table-striped report-table" id="_report_table"> <tr> <td>S.No</td> <td>Id</td> <td>Product</td> <td>Customer</td> <td>Price</td> <td>Delivery Date</td> </tr>';
+              echo '<table class="table table-striped report-table" id="_report_table"> <tr> <td>S.No</td> <td>Id</td> <td>Customer</td> <td>Address</td>  <td>Price</td> <td>Delivery Date</td> </tr>';
               /*$date = $_REQUEST['date'];
-              $query = "SELECT * from `product` where `delivery_date` <= '$date' and `status` = 2 ";
+              $query = "SELECT * from `customer` where `delivery_date` <= '$date' and `status` = 2 ";
               */
-              $query = "SELECT * FROM `product` WHERE `status` = 2";
-              $result = mysqli_query($conn,$query);
+              $query = "SELECT * FROM `customer` WHERE `status` = 2";
+               $result = $db->query($query);
               if($result)
               {
                 $sno = 1;
@@ -77,10 +77,10 @@ include 'header.php';
                   echo "
                       <tr>
                         <td>".$sno."</td>
-                        <td>".$rows['consignment__id']."</td>
-                        <td>".$rows['product_name']."</td>
+                        <td>".$rows['client_order_id']."</td>
                         <td>".$rows['customer_name']."</td>
-                        <td>".$rows['price']."</td>
+                        <td>".$rows['customer_address']."</td>
+                        <td>".$rows['cod_amount']."</td>
                         <td>".$rows['delivery_date']."</td>
                       </tr>";
                 $sno+=1;
@@ -93,10 +93,10 @@ include 'header.php';
              if(isset($_REQUEST['enlist_report']))
              {
 
-              echo '<table class="table table-striped report-table" id="_report_table"> <tr> <td>S.No</td> <td>Id</td> <td>Product</td> <td>Customer</td> <td>Price</td> </tr>';
+              echo '<table class="table table-striped report-table" id="_report_table"> <tr> <td>S.No</td> <td>Id</td> <td>Customer</td> <td>Address</td>  <td>Price</td> </tr>';
 
-              $query = "SELECT * from `product` where `status` = 0 ";
-              $result = mysqli_query($conn,$query);
+              $query = "SELECT * from `customer` where `status` = 0 ";
+               $result = $db->query($query);
               if($result)
               {
                 $sno = 1;
@@ -105,10 +105,10 @@ include 'header.php';
                   echo "
                       <tr>
                         <td>".$sno."</td>
-                        <td>".$rows['consignment__id']."</td>
-                        <td>".$rows['product_name']."</td>
+                        <td>".$rows['client_order_id']."</td>
                         <td>".$rows['customer_name']."</td>
-                        <td>".$rows['price']."</td>
+                        <td>".$rows['customer_address']."</td>
+                        <td>".$rows['cod_amount']."</td>
                       </tr>";
                 $sno+=1;
                 }
@@ -120,13 +120,13 @@ include 'header.php';
             if(isset($_REQUEST['dispatch_report']))
              {
 
-              echo '<table class="table table-striped report-table" id="_report_table"> <tr> <td>S.No</td> <td>Id</td> <td>Product</td> <td>Customer</td> <td>Price</td> <td>Delivery Date</td> </tr>';
+              echo '<table class="table table-striped report-table" id="_report_table"> <tr> <td>S.No</td> <td>Id</td> <td>Customer</td> <td>Address</td>  <td>Price</td> <td>Delivery Date</td> </tr>';
 
               /*$date = $_REQUEST['date'];
-              $query = "SELECT * from `product` where `dispatch_date` <= '$date' and `status` = 1";
+              $query = "SELECT * from `customer` where `dispatch_date` <= '$date' and `status` = 1";
               */
-              $query = "SELECT * FROM `product` WHERE `status` = 1";
-              $result = mysqli_query($conn,$query);
+              $query = "SELECT * FROM `customer` WHERE `status` = 1";
+               $result = $db->query($query);
               if($result)
               {
                 $sno = 1;
@@ -135,10 +135,10 @@ include 'header.php';
                   echo "
                       <tr>
                         <td>".$sno."</td>
-                        <td>".$rows['consignment__id']."</td>
-                        <td>".$rows['product_name']."</td>
+                        <td>".$rows['client_order_id']."</td>
                         <td>".$rows['customer_name']."</td>
-                        <td>".$rows['price']."</td>
+                        <td>".$rows['customer_address']."</td>
+                        <td>".$rows['cod_amount']."</td>
                         <td>".$rows['dispatch_date']."</td>
                       </tr>";
                 $sno+=1;
@@ -150,13 +150,13 @@ include 'header.php';
 
             if(isset($_REQUEST['cancel_report']))
              {
-              echo '<table class="table table-striped report-table" id="_report_table"> <tr> <td>S.No</td> <td>Id</td> <td>Product</td> <td>Customer</td> <td>Price</td> <td>Status</td> </tr>';
+              echo '<table class="table table-striped report-table" id="_report_table"> <tr> <td>S.No</td> <td>Id</td> <td>Customer</td> <td>Address</td>  <td>Price</td> <td>Status</td> </tr>';
 
               /*$date = $_REQUEST['date'];
-              $query = "SELECT * from `product` where `delivery_date` <= '$date' ";
+              $query = "SELECT * from `customer` where `delivery_date` <= '$date' ";
               */
-              $query = "SELECT * FROM `product` WHERE `status` = 3";
-              $result = mysqli_query($conn,$query);
+              $query = "SELECT * FROM `customer` WHERE `status` = 3";
+               $result = $db->query($query);
               if($result)
               {
                 $sno = 1;
@@ -165,10 +165,10 @@ include 'header.php';
                   echo "
                       <tr>
                         <td>".$sno."</td>
-                        <td>".$rows['consignment__id']."</td>
-                        <td>".$rows['product_name']."</td>
+                        <td>".$rows['client_order_id']."</td>
                         <td>".$rows['customer_name']."</td>
-                        <td>".$rows['price']."</td>
+                        <td>".$rows['customer_address']."</td>
+                        <td>".$rows['cod_amount']."</td>
                         <td>FAILED</td>
                       </tr>";
                 $sno+=1;
@@ -180,9 +180,9 @@ include 'header.php';
 
             if(isset($_REQUEST['charges_report']))
             {
-               echo '<table class="table table-striped report-table" id="_report_table"> <tr> <td>S.No</td> <td>Id</td> <td>Product</td> <td>Customer</td> <td>Price</td> <td>Charge of Consignment</td> </tr>';
-               $query = "SELECT * FROM `product`";
-               $result = mysqli_query($conn,$query);
+               echo '<table class="table table-striped report-table" id="_report_table"> <tr> <td>S.No</td> <td>Id</td> <td>Customer</td> <td>Address</td>  <td>Price</td> <td>Charge of Consignment</td> </tr>';
+               $query = "SELECT * FROM `customer`";
+                $result = $db->query($query);
                if($result)
                {
                 $sno = 1;
@@ -191,10 +191,10 @@ include 'header.php';
                   echo "
                       <tr>
                         <td>".$sno."</td>
-                        <td>".$rows['consignment__id']."</td>
-                        <td>".$rows['product_name']."</td>
+                        <td>".$rows['client_order_id']."</td>
                         <td>".$rows['customer_name']."</td>
-                        <td>".$rows['price']."</td>
+                        <td>".$rows['customer_address']."</td>
+                        <td>".$rows['cod_amount']."</td>
                         <td>".$rows['charge_of_consignment']."</td>
                       </tr>";
                       $sno+=1;
@@ -205,10 +205,10 @@ include 'header.php';
              if(isset($_REQUEST['r_request']))
              {
 
-              echo '<table class="table table-striped report-table" id="_report_table"> <tr> <td>S.No</td> <td>Id</td> <td>Product</td> <td>Customer</td> <td>Price</td> </tr>';
+              echo '<table class="table table-striped report-table" id="_report_table"> <tr> <td>S.No</td> <td>Id</td> <td>Customer</td> <td>Address</td>  <td>Price</td> </tr>';
 
-              $query = "SELECT * from `product_return` where `status` = 20 ";
-              $result = mysqli_query($conn,$query);
+              $query = "SELECT * from `return_product` where `status` = 20 ";
+               $result = $db->query($query);
               if($result)
               {
                 $sno = 1;
@@ -217,10 +217,10 @@ include 'header.php';
                   echo "
                       <tr>
                         <td>".$sno."</td>
-                        <td>".$rows['consignment_r__id']."</td>
-                        <td>".$rows['product_name']."</td>
+                        <td>".$rows['client_order_id']."</td>
                         <td>".$rows['customer_name']."</td>
-                        <td>".$rows['price']."</td>
+                        <td>".$rows['customer_address']."</td>
+                        <td>".$rows['cod_amount']."</td>
                       </tr>";
                 $sno+=1;
                 }
@@ -232,10 +232,10 @@ include 'header.php';
              if(isset($_REQUEST['r_out']))
              {
 
-              echo '<table class="table table-striped report-table" id="_report_table"> <tr> <td>S.No</td> <td>Id</td> <td>Product</td> <td>Customer</td> <td>Price</td> </tr>';
+              echo '<table class="table table-striped report-table" id="_report_table"> <tr> <td>S.No</td> <td>Id</td> <td>Customer</td> <td>Address</td>  <td>Price</td> </tr>';
 
-              $query = "SELECT * from `product_return` where `status` = 21 ";
-              $result = mysqli_query($conn,$query);
+              $query = "SELECT * from `return_product` where `status` = 21 ";
+               $result = $db->query($query);
               if($result)
               {
                 $sno = 1;
@@ -244,10 +244,10 @@ include 'header.php';
                   echo "
                       <tr>
                         <td>".$sno."</td>
-                        <td>".$rows['consignment_r__id']."</td>
-                        <td>".$rows['product_name']."</td>
+                        <td>".$rows['client_order_id']."</td>
                         <td>".$rows['customer_name']."</td>
-                        <td>".$rows['price']."</td>
+                        <td>".$rows['customer_address']."</td>
+                        <td>".$rows['cod_amount']."</td>
                       </tr>";
                 $sno+=1;
                 }
@@ -259,10 +259,10 @@ include 'header.php';
              if(isset($_REQUEST['r_received']))
              {
 
-              echo '<table class="table table-striped report-table" id="_report_table"> <tr> <td>S.No</td> <td>Id</td> <td>Product</td> <td>Customer</td> <td>Price</td> </tr>';
+              echo '<table class="table table-striped report-table" id="_report_table"> <tr> <td>S.No</td> <td>Id</td> <td>Customer</td> <td>Address</td>  <td>Price</td> </tr>';
 
-              $query = "SELECT * from `product_return` where `status` = 22 ";
-              $result = mysqli_query($conn,$query);
+              $query = "SELECT * from `return_product` where `status` = 22 ";
+               $result = $db->query($query);
               if($result)
               {
                 $sno = 1;
@@ -271,10 +271,10 @@ include 'header.php';
                   echo "
                       <tr>
                         <td>".$sno."</td>
-                        <td>".$rows['consignment_r__id']."</td>
-                        <td>".$rows['product_name']."</td>
+                        <td>".$rows['client_order_id']."</td>
                         <td>".$rows['customer_name']."</td>
-                        <td>".$rows['price']."</td>
+                        <td>".$rows['customer_address']."</td>
+                        <td>".$rows['cod_amount']."</td>
                       </tr>";
                 $sno+=1;
                 }
@@ -286,10 +286,10 @@ include 'header.php';
              if(isset($_REQUEST['r_failed']))
              {
 
-              echo '<table class="table table-striped report-table" id="_report_table"> <tr> <td>S.No</td> <td>Id</td> <td>Product</td> <td>Customer</td> <td>Price</td> </tr>';
+              echo '<table class="table table-striped report-table" id="_report_table"> <tr> <td>S.No</td> <td>Id</td> <td>Customer</td> <td>Address</td>  <td>Price</td> </tr>';
 
-              $query = "SELECT * from `product_return` where `status` = 23 ";
-              $result = mysqli_query($conn,$query);
+              $query = "SELECT * from `return_product` where `status` = 23 ";
+               $result = $db->query($query);
               if($result)
               {
                 $sno = 1;
@@ -298,10 +298,10 @@ include 'header.php';
                   echo "
                       <tr>
                         <td>".$sno."</td>
-                        <td>".$rows['consignment_r__id']."</td>
-                        <td>".$rows['product_name']."</td>
+                        <td>".$rows['client_order_id']."</td>
                         <td>".$rows['customer_name']."</td>
-                        <td>".$rows['price']."</td>
+                        <td>".$rows['customer_address']."</td>
+                        <td>".$rows['cod_amount']."</td>
                       </tr>";
                 $sno+=1;
                 }
@@ -312,31 +312,25 @@ include 'header.php';
 
              if(isset($_REQUEST['r_charges']))
              {
-
-              $query = "SELECT * from `product_return` ";
-              $result = mysqli_query($conn,$query);
+              echo '<table class="table table-striped report-table" id="_report_table"> <tr> <td>S.No</td> <td>Id</td> <td>Customer</td> <td>Address</td>  <td>Price</td> <td>Charge of Consignment</td> </tr>';
+              $query = "SELECT * from `return_product` ";
+               $result = $db->query($query);
               if($result)
               {
-                 echo '<table class="table table-striped report-table" id="_report_table"> <tr> <td>S.No</td> <td>Id</td> <td>Product</td> <td>Customer</td> <td>Price</td> <td>Charge of Consignment</td> </tr>';
-                 $query = "SELECT * FROM `product_return`";
-                 $result = mysqli_query($conn,$query);
-                 if($result)
-                 {
                     $sno = 1;
                     while($rows = mysqli_fetch_assoc($result))
                     {
                       echo "
                           <tr>
                             <td>".$sno."</td>
-                            <td>".$rows['consignment_r__id']."</td>
-                            <td>".$rows['product_name']."</td>
+                            <td>".$rows['client_order_id']."</td>
                             <td>".$rows['customer_name']."</td>
-                            <td>".$rows['price']."</td>
+                            <td>".$rows['customer_address']."</td>
+                            <td>".$rows['cod_amount']."</td>
                             <td>".$rows['charge_of_consignment']."</td>
                           </tr>";
                           $sno+=1;
                     }
-                  }
                 }
 
 

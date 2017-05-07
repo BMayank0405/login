@@ -48,7 +48,7 @@ include 'header.php';
 
               foreach($id as $val)
               {
-                  $query = "UPDATE `customer` SET `attempt_date` = '$today',`attempts` = attempts+1 WHERE `pd_id` = $val";
+                  $query = "UPDATE `customer` SET `attempt_date` = '$today',`attempts` = attempts+1 WHERE `id` = $val";
                   $result = $db->query($query);
               }
               if($result)
@@ -82,7 +82,7 @@ include 'header.php';
           <table class="table table-striped report-table" id="_report_table"><tr> <td>S.No</td> <td>Client_order_id</td><td>Customer</td> <td>Address</td>  <td>Price</td> <td>Not Delivered  <input type="checkbox" name="select_all" id="select_all"></td> </tr>
           <?php
              $query = "SELECT * FROM `customer` WHERE `status` = 1";
-            $result = $db->query($query);
+             $result = $db->query($query);
              if(mysqli_num_rows($result) > 0)
              {
               $counter = 1;

@@ -92,7 +92,7 @@ include 'header.php';
                 $awb_number = $rows['awb_number'];
                 $charge_of_consignment = $rows['charge_of_consignment'];
                 $d_type;
-                if($delivery_type==1)
+                if($delivery_type == 1)
                 {
                   $d_type = "COD";
                 }

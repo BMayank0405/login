@@ -79,14 +79,6 @@
       </div>
       <div class="row">
         <div class="col-md-2 staff_options">
-            <a href="client_add.php">
-              <div class="staff_options_thumb">
-                <img src="images/client_add.png">
-              </div>
-              <h4>Add Client</h4>
-            </a>
-        </div>
-        <div class="col-md-2 staff_options">
             <a href="client_report.php">
               <div class="staff_options_thumb">
                 <img src="images/excel.png">

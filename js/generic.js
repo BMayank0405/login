@@ -1,34 +1,3 @@
-$(document).ready(function()
-{
-/*for showing and hiding the rto and rts attributes*/
-		$('#return').blur(function(){
-			var value = $('#return option:selected').attr('value');
-			if(value == 2){
-				$('.rto').fadeOut("fast")
-				var attr = $(this).attr('required');
-				// For some browsers, `attr` is undefined; for others, `attr` is false. Check for both.
-				if (typeof attr !== typeof undefined && attr !== false) {
-				 $('.rto').removeAttr("required");
-				}
-				$('.rts')
-								.fadeIn("slow","swing")
-								.attr('required',true);
-			}
-			if(value == 1){
-				$('.rts').fadeOut("fast")
-				var attr = $(this).attr('required');
-				// For some browsers, `attr` is undefined; for others, `attr` is false. Check for both.
-				if (typeof attr !== typeof undefined && attr !== false) {
-				 $('.rts').removeAttr("required");
-				}
-				$('.rto')
-								.fadeIn("slow","swing")
-								.attr('required',true);
-			}
-		});
-/*end of the script for rto and rts*/
-
-
 
 	$('.c_report_view').on('click',function()
 	{
