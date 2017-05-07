@@ -33,7 +33,7 @@ $(":text, :password").blur(function(){
   data[key]=value;
   $.ajax({
     type: 'post',
-    url: 'captcha_test.php',
+    url: 'validate.php',
     data:data,
     cache:false,
     success: function (response) {

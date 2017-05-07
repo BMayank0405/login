@@ -1,3 +1,11 @@
+<?php
+session_start();
+require_once './functions/init.php';
+require_once './functions/function.php';
+logged_in_redirect();
+
+?>
+
 <!DOCTYPE html>
 <html >
 <head>
@@ -8,7 +16,6 @@
           integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
           crossorigin="anonymous">
   </script>
-
 </head>
 <body>
   <div id="bg-img">

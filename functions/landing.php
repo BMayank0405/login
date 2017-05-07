@@ -1,5 +1,4 @@
 <?php
-
   $result = $db->query("SELECT `id`,`username`,`password` FROM `user` WHERE `id` = 1");
   try{
     if($result){
